@@ -1,0 +1,34 @@
+inherit ocaml
+
+DESCRIPTION="Multi-protocol P2P client"
+HOMEPAGE="http://mldonkey.sourceforge.net/"
+SRC_URI="mirror://sourceforge/mldonkey/${P}.tar.bz2"
+PATCH_URI="3.0.1-cygwin.patch"
+
+PKG_NAMES="${PN} ${PN}-gui"
+mldonkey_CONTENTS="--exclude=*gui* usr/bin/ usr/share/doc/"
+mldonkey_gui_CONTENTS="etc/ usr/bin/*gui* usr/share/applications/ usr/share/icons/"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	./configure --prefix=/usr --enable-gui=newgui2 --enable-ocamlver=$(${OCAMLC} -version)
+	cygmake -j1
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	dobin ${S}/distrib/mldonkey_{command,previewer}
+
+	for i in 16 32 48
+	do
+		insinto /usr/share/icons/hicolor/${i}x${i}/apps
+		newins ${S}/packages/rpm/${PN}-icon-${i}.png ${PN}.png
+	done
+
+	make_desktop_entry mlgui "MLDonkey GUI" mldonkey "Network;P2P;GTK"
+}
+
+DOCS="distrib/ChangeLog distrib/*.txt"

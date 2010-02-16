@@ -1,0 +1,24 @@
+* -cc cannot be overriden on flexdll platforms
+* OS_FILES2 enables the windres resource
+
+--- origsrc/mldonkey-3.0.1/Makefile	2009-10-23 00:55:40.000000000 -0500
++++ src/mldonkey-3.0.1/Makefile	2010-02-16 01:59:40.874018500 -0600
+@@ -291,7 +291,7 @@ Makefile: config/Makefile.in
+ MAIN_SRCS=$(COMMON)/commonMain.ml
+ 
+ ifeq ("$(DONKEY_SUI)", "yes")
+-  CRYPTOPP_LIBS_flags += -cc '$(CXX) $(CXXFLAGS)' -ccopt '$(CRYPTOPPFLAGS)'
++  CRYPTOPP_LIBS_flags += -cclib '-lstdc++' -ccopt '$(CRYPTOPPFLAGS)'
+   DONKEY_SRCS += $(LIB)/CryptoPP.cc $(LIB)/CryptoPP_stubs.c $(SRC_DONKEY)/donkeySui1.ml $(SRC_DONKEY)/donkeySui.ml
+ else
+   DONKEY_SRCS += $(SRC_DONKEY)/donkeySui2.ml $(SRC_DONKEY)/donkeySui.ml
+--- origsrc/mldonkey-3.0.1/config/configure.in	2009-10-23 00:54:35.000000000 -0500
++++ src/mldonkey-3.0.1/config/configure.in	2010-02-16 02:21:35.193193300 -0600
+@@ -103,7 +103,6 @@ END
+     ;;
+   *cygwin*)
+     SYSTEM=cygwin
+-    OS_FILES2=cygwin
+     ;;
+   *freebsd*|*dragonfly*)
+     SYSTEM=freebsd

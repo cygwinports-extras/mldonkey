@@ -1,0 +1,8 @@
+category: Net
+requires: mldonkey file libbz2_1 libcharset1 libgcc1 libgd2 libgdk_pixbuf2.0_0 libglib2.0_0 libgtk2.0_0 libpango1.0_0 libpng12 librsvg2_2 libstdc++6 libX11_6 zlib0
+external-source: mldonkey
+sdesc: "Multi-protocol P2P client (GTK+ GUI)"
+ldesc: "MLDonkey is a client for several P2P networks. It runs as a 
+daemon, in the background, that can run, downloading and sharing files, 
+24 hours a day. You can interact with your mldonkey daemon, either 
+locally or remotely, by a telnet interface, a Web interface or a GTK GUI.
