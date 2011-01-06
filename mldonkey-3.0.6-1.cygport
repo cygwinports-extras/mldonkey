@@ -20,7 +20,7 @@ src_install() {
 	cd ${B}
 	cyginstall
 
-	dobin ${S}/distrib/mldonkey_{command,previewer}
+	dobin mlguistarter.exe ${S}/distrib/mldonkey_{command,previewer}
 
 	for i in 16 32 48
 	do

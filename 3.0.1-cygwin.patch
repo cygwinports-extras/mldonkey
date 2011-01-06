@@ -12,6 +12,27 @@
    DONKEY_SRCS += $(LIB)/CryptoPP.cc $(LIB)/CryptoPP_stubs.c $(SRC_DONKEY)/donkeySui1.ml $(SRC_DONKEY)/donkeySui.ml
  else
    DONKEY_SRCS += $(SRC_DONKEY)/donkeySui2.ml $(SRC_DONKEY)/donkeySui.ml
+--- origsrc/mldonkey-3.0.6/config/config.rpath	2005-04-07 11:03:49.000000000 -0500
++++ src/mldonkey-3.0.6/config/config.rpath	2011-01-06 01:15:40.251580200 -0600
+@@ -460,7 +460,7 @@ case "$host_os" in
+   bsdi[45]*)
+     ;;
+   cygwin* | mingw* | pw32*)
+-    shrext=.dll
++    shrext=.dll.a
+     ;;
+   darwin* | rhapsody*)
+     shrext=.dylib
+--- origsrc/mldonkey-3.0.6/config/configure	2010-11-15 13:10:10.000000000 -0600
++++ src/mldonkey-3.0.6/config/configure	2011-01-06 01:15:53.667603600 -0600
+@@ -3448,7 +3448,6 @@ $as_echo "$MINGW_RT_VER" >&6; }
+     ;;
+   *cygwin*)
+     SYSTEM=cygwin
+-    OS_FILES2=cygwin
+     ;;
+   *kfreebsd*)
+     SYSTEM=kfreebsd
 --- origsrc/mldonkey-3.0.1/config/configure.in	2009-10-23 00:54:35.000000000 -0500
 +++ src/mldonkey-3.0.1/config/configure.in	2010-02-16 02:21:35.193193300 -0600
 @@ -103,7 +103,6 @@ END
