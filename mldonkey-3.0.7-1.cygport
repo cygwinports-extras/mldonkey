@@ -12,6 +12,8 @@ mldonkey_gui_CONTENTS="etc/ usr/bin/*gui* usr/share/applications/ usr/share/icon
 src_compile() {
 	lndirs
 	cd ${B}
+	# src/utils/lib/CryptoPP.o is too large with debug symbols
+	CXXFLAGS="-O2 -pipe"
 	./configure --prefix=/usr --enable-gui=newgui2 --enable-ocamlver=$(${OCAMLC} -version)
 	cygmake -j1
 }
