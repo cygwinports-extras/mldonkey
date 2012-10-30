@@ -1,7 +1,0 @@
-category: Net
-requires: file libbz2_1 libcharset1 libgd2 libiconv2 libpng14 libstdc++6 zlib0 netcat
-sdesc: "Multi-protocol P2P client (daemon with telnet and web interfaces)"
-ldesc: "MLDonkey is a client for several P2P networks. It runs as a 
-daemon, in the background, that can run, downloading and sharing files, 
-24 hours a day. You can interact with your mldonkey daemon, either 
-locally or remotely, by a telnet interface, a Web interface or a GTK GUI."
