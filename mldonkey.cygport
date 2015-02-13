@@ -2,7 +2,7 @@ inherit ocaml
 
 NAME="mldonkey"
 VERSION=3.1.5
-RELEASE=2
+RELEASE=3
 CATEGORY="Net"
 SUMMARY="Multi-protocol P2P client"
 DESCRIPTION="MLDonkey is a client for several P2P networks. It runs as a daemon,
